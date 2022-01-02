@@ -73,7 +73,7 @@ namespace TCPClientAndServerWithDragDrop.ViewModels
         private void Send()
         {
             var ipadress = IPAddress.Parse("192.168.1.109");
-            var port = 27001;
+            var port = 1234;
             var ep = new IPEndPoint(ipadress, port);
 
             try

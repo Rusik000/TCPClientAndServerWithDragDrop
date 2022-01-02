@@ -9,7 +9,7 @@
     <Grid Background="Black">
         <StackPanel>
             <TextBlock Text="Server" Foreground="White" FontSize="50" HorizontalAlignment="Center" TextAlignment="Center" Margin="98,0,84,0" Width="210"   ></TextBlock>
-            <TextBlock Margin="10" Text="{Binding ClientName, Mode=TwoWay}" FontSize="25" Foreground="White"  ></TextBlock>
+            <TextBlock Name="FromClient" Margin="10"  FontSize="25" Foreground="White"  ></TextBlock>
             <Button Margin="10" Background="Blue" Width="300" Height="100" Content="Start Server" FontSize="50" Foreground="White" Command="{Binding StartServerCommand}"></Button>
             <Button Margin="10" Background="Green" Width="200" Height="100" Content="Play" FontSize="50" Foreground="White" Command="{Binding PlayCommand}"></Button>
         </StackPanel>

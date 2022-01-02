@@ -30,7 +30,7 @@ namespace TCPServer.ViewModels
 
         public string SendedMessage { get; set; }
 
-        static TcpListener listener = null;
+        static TcpListener listener;
 
         static BinaryReader br = null;
 
@@ -74,26 +74,30 @@ namespace TCPServer.ViewModels
             {
                 var ip = IPAddress.Parse("192.168.1.109");
 
-                var port = 27001;
+                var port = 1234;
 
                 var ep = new IPEndPoint(ip, port);
 
                 listener = new TcpListener(ep);
 
+
                 listener.Start();
+
 
                 while (true)
                 {
-                    var client = listener.AcceptTcpClient();
-                    MessageBox.Show("Connected");
-
+                    var client = listener.AcceptTcpClient();                  
                     var stream = client.GetStream();
                     br = new BinaryReader(stream);
 
                     var msg = br.ReadString();
                     string[] subMessage = msg.Split(' ');
                     SendedMessage = subMessage[0];
-                    ClientName = "From" + "-" + subMessage[1];
+                    ClientName = "From" + " " + subMessage[1];
+                    App.Current.Dispatcher.Invoke(() =>
+                    {
+                        MainView.FromClient.Text = ClientName;
+                    });
                 }
             }
             catch (Exception ex)
