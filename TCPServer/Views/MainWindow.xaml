@@ -1,0 +1,17 @@
+﻿<Window x:Class="TCPServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TCPServer"
+        mc:Ignorable="d"
+        Title="TCPServer" Height="600" Width="400">
+    <Grid Background="Black">
+        <StackPanel>
+            <TextBlock Text="Server" Foreground="White" FontSize="50" HorizontalAlignment="Center" TextAlignment="Center" Margin="98,0,84,0" Width="210"   ></TextBlock>
+            <TextBlock Margin="10" Text="{Binding ClientName, Mode=TwoWay}" FontSize="25" Foreground="White"  ></TextBlock>
+            <Button Margin="10" Background="Blue" Width="300" Height="100" Content="Start Server" FontSize="50" Foreground="White" Command="{Binding StartServerCommand}"></Button>
+            <Button Margin="10" Background="Green" Width="200" Height="100" Content="Play" FontSize="50" Foreground="White" Command="{Binding PlayCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
